@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pixoo-cli"
+version = "0.1.0"
+description = "Push text, images, and GIFs to a Divoom Pixoo over BLE"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Jon Vlachogiannis" }]
+requires-python = ">=3.9"
+dependencies = [
+    "bleak>=0.22",
+    "Pillow>=10.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/jonromero/pixoo-cli"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+pixoo-cli = "pixoo_cli.cli:main"
+
+[tool.setuptools]
+packages = ["pixoo_cli"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
